@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fixAfrique - Innovation Technologique au Sénégal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        :root {
+    --primary-green: #00A651;
+    --primary-yellow: #FFCD00;
+    --primary-red: #E31E24;
+    --dark-green: #006B3A;
+    --light-green: #E8F5E8;
+    --neutral-dark: #2C3E50;
+    --neutral-light: #F8F9FA;
+    --white: #FFFFFF;
+    --text-dark: #2C3E50;
+    --text-light: #6C757D;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px var(--shadow);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 5px 15px rgba(0, 166, 81, 0.3);
+}
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(
+        90deg,
+        #17C5DB 0%,
+        #17C5DB 15%,
+        #EF4136 25%,
+        #F7931E 40%,
+        #FBB03B 70%,
+        #D9782A 100%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo:hover .logo-text {
+    text-shadow: 0 0 20px rgba(23, 197, 219, 0.3);
+}
+
+.logo-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #FBB03B, #EF4136);
+    border-radius: 2px;
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+
+.logo::before {
+    content: '🚀';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.logo:hover::before {
+    opacity: 1;
+    left: -35px;
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(-50%);
+    }
+    40% {
+        transform: translateY(-70%);
+    }
+    80% {
+        transform: translateY(-60%);
+    }
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--primary-green);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-green);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-green);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 100,0 50,100" fill="%23FFCD00" opacity="0.1"/></svg>');
+    background-size: 200px 200px;
+    animation: float 20s ease-in-out infinite;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--neutral-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-text .highlight {
+    color: var(--primary-green);
+    position: relative;
+}
+
+.hero-text .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary-yellow), var(--primary-red));
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-green);
+    font-weight: 500;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 166, 81, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 166, 81, 0.5);
+    background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tech-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    animation: float 6s ease-in-out infinite;
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--white);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.tech-icon:hover {
+    transform: translateY(-15px) rotate(10deg) scale(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.tech-icon:hover::before {
+    left: 100%;
+}
+
+.tech-icon:nth-child(1) { color: #61DAFB; animation-delay: 0s; }
+.tech-icon:nth-child(2) { color: #4CAF50; animation-delay: 0.5s; }
+.tech-icon:nth-child(3) { color: #FF6B35; animation-delay: 1s; }
+.tech-icon:nth-child(4) { color: #3498DB; animation-delay: 1.5s; }
+.tech-icon:nth-child(5) { color: #9C27B0; animation-delay: 2s; }
+.tech-icon:nth-child(6) { color: #FF9800; animation-delay: 2.5s; }
+
+/* Section Styles */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--neutral-dark);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-yellow));
+    border-radius: 2px;
+}
+
+.section-title p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* About Section */
+.about {
+    background: var(--neutral-light);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    display: block;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px var(--shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-yellow), var(--primary-red));
+    transition: height 0.3s ease;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 166, 81, 0.05), rgba(255, 205, 0, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before {
+    height: 8px;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--neutral-dark);
+}
+
+.service-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.service-features {
+    list-style: none;
+    text-align: left;
+}
+
+.service-features li {
+    padding: 0.5rem 0;
+    color: var(--text-light);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+/* Why Choose Us Section */
+.why-choose {
+    background: var(--light-green);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem 1rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    background: var(--primary-yellow);
+    color: var(--neutral-dark);
+}
+
+.feature-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--neutral-dark);
+}
+
+.feature-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Contact Section */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.contact-info {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow);
+}
+
+.contact-info h3 {
+    margin-bottom: 2rem;
+    color: var(--neutral-dark);
+    font-size: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.contact-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--neutral-dark);
+}
+
+.contact-item p {
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow);
+}
+
+.contact-form h3 {
+    margin-bottom: 2rem;
+    color: var(--neutral-dark);
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--neutral-dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #E9ECEF;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: var(--white);
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 166, 81, 0.3);
+}
+
+/* Footer */
+.footer {
+    background: var(--neutral-dark);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-yellow);
+}
+
+.footer-section p,
+.footer-section a {
+    color: #BDC3C7;
+    text-decoration: none;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: var(--primary-green);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-yellow);
+    color: var(--neutral-dark);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #34495E;
+    padding-top: 1rem;
+    text-align: center;
+    color: #BDC3C7;
+}
+
+.footer-bottom a {
+    color: var(--primary-green);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Advanced Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-20px) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease forwards;
+}
+
+.bounce-in {
+    animation: bounceIn 0.8s ease forwards;
+}
+
+.fade-in-scale {
+    animation: fadeInScale 0.6s ease forwards;
+}
+
+/* Scroll animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-content {
+        justify-content: space-between;
+    }
+
+    .logo-img {
+        height: 32px;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 0 5px 20px var(--shadow);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .mobile-menu.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .mobile-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-icons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .tech-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo"><img src="fixafrique.png" alt="fixAfrique Logo" class="logo-img"><span class="logo-text">fixAfrique</span></a>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>L'innovation <span class="highlight">technologique</span> africaine</h1>
+                    <p>Nous développons des solutions logicielles sur mesure qui transforment les entreprises et connectent l'Afrique au monde numérique.</p>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dakar, Sénégal</span>
+                    </div>
+                    <a href="#contact" class="cta-button">
+                        <span>Démarrer votre projet</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="hero-visual">
+                    <div class="tech-icons">
+                        <div class="tech-icon"><i class="fab fa-react"></i></div>
+                        <div class="tech-icon"><i class="fab fa-android"></i></div>
+                        <div class="tech-icon"><i class="fab fa-swift"></i></div>
+                        <div class="tech-icon"><i class="fab fa-js-square"></i></div>
+                        <div class="tech-icon"><i class="fab fa-python"></i></div>
+                        <div class="tech-icon"><i class="fas fa-database"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="section about">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de <span class="logo-text">fixAfrique</span></h2>
+                <p>Pionniers du développement logiciel au Sénégal, nous créons des solutions technologiques qui propulsent l'Afrique vers l'avenir numérique.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Fondée au cœur de Dakar, <strong>fixAfrique</strong> est une entreprise innovante spécialisée dans l'édition de logiciels et le développement d'applications mobiles et web. Notre mission est de démocratiser la technologie en Afrique en créant des solutions accessibles, performantes et adaptées aux besoins locaux.</p>
+                    
+                    <p>Avec une équipe de développeurs passionnés et expérimentés, nous combinons l'expertise technique internationale avec une compréhension profonde du marché africain. Chaque projet que nous réalisons contribue à bâtir un écosystème technologique robuste et durable au Sénégal et au-delà.</p>
+                    
+                    <p>Notre approche centrée sur l'innovation nous permet de transformer les défis en opportunités, créant des applications qui simplifient la vie quotidienne et stimulent la croissance économique.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">Projets réalisés</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="5">0</span>
+                        <span class="stat-label">Années d'expérience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="98">0</span>
+                        <span class="stat-label">Clients satisfaits (%)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="24">0</span>
+                        <span class="stat-label">Support (24h/24)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Services</h2>
+                <p>Des solutions technologiques complètes pour propulser votre entreprise vers le succès numérique.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Applications Mobiles</h3>
+                    <p>Développement d'applications natives et cross-platform pour iOS et Android. Des interfaces intuitives et des performances optimales pour une expérience utilisateur exceptionnelle.</p>
+                    <ul class="service-features">
+                        <li>Applications iOS & Android</li>
+                        <li>React Native & Flutter</li>
+                        <li>UI/UX Design moderne</li>
+                        <li>Intégration API</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Développement Web</h3>
+                    <p>Sites web modernes, applications web progressives et plateformes e-commerce. Solutions responsive et optimisées pour tous les appareils et navigateurs.</p>
+                    <ul class="service-features">
+                        <li>Sites web responsive</li>
+                        <li>Applications web (PWA)</li>
+                        <li>E-commerce</li>
+                        <li>CMS personnalisés</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Logiciels Sur Mesure</h3>
+                    <p>Édition de logiciels personnalisés adaptés à vos besoins spécifiques. De la conception à la maintenance, nous créons des solutions qui évoluent avec votre entreprise.</p>
+                    <ul class="service-features">
+                        <li>Logiciels de gestion</li>
+                        <li>Systèmes d'information</li>
+                        <li>Automatisation</li>
+                        <li>Intégrations tierces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-choose">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pourquoi choisir fixAfrique ?</h2>
+                <p>Notre expertise locale combinée aux standards internationaux fait de nous le partenaire idéal pour vos projets technologiques.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Innovation Continue</h4>
+                    <p>Technologies de pointe et méthodologies agiles pour des solutions avant-gardistes.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Équipe Experte</h4>
+                    <p>Développeurs certifiés avec une expertise approfondie des technologies modernes.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Livraison Rapide</h4>
+                    <p>Respect des délais et livraison de projets de qualité dans les temps impartis.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Sécurité Garantie</h4>
+                    <p>Protocoles de sécurité robustes pour protéger vos données et applications.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Support Dédié</h4>
+                    <p>Accompagnement personnalisé et support technique 24/7 pour votre tranquillité.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>ROI Optimisé</h4>
+                    <p>Solutions rentables qui génèrent une valeur ajoutée mesurable pour votre entreprise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-nous</h2>
+                <p>Prêt à transformer votre vision en réalité numérique ? Discutons de votre projet dès aujourd'hui.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informations de Contact</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Ouest foire, Dakar<br>Sénégal</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>+221 78 500 36 59</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>fixafrique@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Horaires</h4>
+                            <p>Lun - Ven: 8h00 - 18h00<br>Sam: 9h00 - 13h00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envoyez-nous un message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service souhaité</label>
+                            <select id="service" name="service" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="mobile">Application Mobile</option>
+                                <option value="web">Développement Web</option>
+                                <option value="software">Logiciel Sur Mesure</option>
+                                <option value="consulting">Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Envoyer le message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><span class="logo-text">fixAfrique</span></h4>
+                    <p>Votre partenaire technologique de confiance au Sénégal. Nous transformons vos idées en solutions numériques innovantes.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Applications Mobiles</a></li>
+                        <li><a href="#services">Développement Web</a></li>
+                        <li><a href="#services">Logiciels Sur Mesure</a></li>
+                        <li><a href="#contact">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Ouest foire, Dakar, Sénégal</p>
+                    <p><i class="fas fa-phone"></i> +221 78 500 36 59</p>
+                    <p><i class="fas fa-envelope"></i> fixafrique@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 fixAfrique. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- <script src="script.js"></script> -->
+
+    <script>
+    // DOM Elements
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+const navbar = document.querySelector('.navbar');
+const contactForm = document.getElementById('contact-form');
+
+// Mobile Menu Toggle
+mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+navLinks.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+        mobileMenu.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    }
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Animated counter for statistics
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    function updateCounter() {
+        start += increment;
+        if (start < target) {
+            element.textContent = Math.floor(start);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    }
+    
+    updateCounter();
+}
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            
+            // Animate counters when stats section comes into view
+            if (entry.target.classList.contains('about-stats')) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    animateCounter(stat, target);
+                });
+            }
+        }
+    });
+}, observerOptions);
+
+// Enhanced scroll animations with different directions
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = [
+        { selector: '.section-title', animation: 'scroll-animate' },
+        { selector: '.service-card', animation: 'scroll-animate-scale' },
+        { selector: '.feature-item', animation: 'scroll-animate' },
+        { selector: '.about-text', animation: 'scroll-animate-left' },
+        { selector: '.about-stats', animation: 'scroll-animate-right' },
+        { selector: '.contact-info', animation: 'scroll-animate-left' },
+        { selector: '.contact-form', animation: 'scroll-animate-right' },
+        { selector: '.stat-card', animation: 'scroll-animate-scale' },
+        { selector: '.tech-icon', animation: 'scroll-animate-scale' }
+    ];
+    
+    animatedElements.forEach(({ selector, animation }) => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach((el, index) => {
+            el.classList.add(animation);
+            el.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+    });
+});
+
+// Enhanced tech icons animations
+document.addEventListener('DOMContentLoaded', () => {
+    const techIcons = document.querySelectorAll('.tech-icon');
+    
+    techIcons.forEach((icon, index) => {
+        icon.style.animationDelay = `${index * 0.3}s`;
+        
+        // Add continuous floating animation
+        icon.style.animation = `float 4s ease-in-out infinite`;
+        icon.style.animationDelay = `${index * 0.5}s`;
+        
+        // Enhanced hover effects
+        icon.addEventListener('mouseenter', () => {
+            const randomRotation = Math.random() * 30 - 15; // -15 to 15 degrees
+            const randomScale = 1.1 + Math.random() * 0.2; // 1.1 to 1.3
+            
+            icon.style.animation = 'none';
+            icon.style.transform = `translateY(-20px) rotate(${randomRotation}deg) scale(${randomScale})`;
+            icon.style.filter = 'drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3))';
+            
+            // Add pulse effect
+            icon.style.animation = 'pulse 0.5s ease-in-out';
+        });
+        
+        icon.addEventListener('mouseleave', () => {
+            icon.style.transform = 'translateY(0) rotate(0deg) scale(1)';
+            icon.style.filter = 'none';
+            
+            // Resume floating animation
+            setTimeout(() => {
+                icon.style.animation = `float 4s ease-in-out infinite`;
+                icon.style.animationDelay = `${index * 0.5}s`;
+            }, 300);
+        });
+        
+        // Add click effect
+        icon.addEventListener('click', () => {
+            icon.style.animation = 'bounceIn 0.6s ease';
+            setTimeout(() => {
+                icon.style.animation = `float 4s ease-in-out infinite`;
+                icon.style.animationDelay = `${index * 0.5}s`;
+            }, 600);
+        });
+    });
+    
+    // Add magnetic effect when mouse is near
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+        heroVisual.addEventListener('mousemove', (e) => {
+            const rect = heroVisual.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            techIcons.forEach((icon, index) => {
+                const iconRect = icon.getBoundingClientRect();
+                const iconCenterX = iconRect.left + iconRect.width / 2;
+                const iconCenterY = iconRect.top + iconRect.height / 2;
+                
+                const distance = Math.sqrt(
+                    Math.pow(mouseX - iconCenterX, 2) + Math.pow(mouseY - iconCenterY, 2)
+                );
+                
+                if (distance < 100) {
+                    const force = (100 - distance) / 100;
+                    const deltaX = (mouseX - iconCenterX) * force * 0.3;
+                    const deltaY = (mouseY - iconCenterY) * force * 0.3;
+                    
+                    icon.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${1 + force * 0.1})`;
+                } else {
+                    icon.style.transform = 'translate(0, 0) scale(1)';
+                }
+            });
+        });
+        
+        heroVisual.addEventListener('mouseleave', () => {
+            techIcons.forEach(icon => {
+                icon.style.transform = 'translate(0, 0) scale(1)';
+            });
+        });
+    }
+});
+
+// Contact form handling
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData);
+    
+    // Simple validation
+    if (!data.name || !data.email || !data.message || !data.service) {
+        showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
+        return;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+        showNotification('Veuillez entrer une adresse email valide.', 'error');
+        return;
+    }
+    
+    // Simulate form submission
+    const submitBtn = contactForm.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+    submitBtn.disabled = true;
+    
+    setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        contactForm.reset();
+        showNotification('Message envoyé avec succès! Nous vous répondrons bientôt.', 'success');
+    }, 2000);
+});
+
+// Notification system
+function showNotification(message, type = 'info') {
+    // Remove existing notification
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+            <span>${message}</span>
+            <button class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `;
+    
+    // Add notification styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 10000;
+        max-width: 400px;
+        background: ${type === 'success' ? '#00A651' : type === 'error' ? '#E31E24' : '#3498DB'};
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+    
+    notification.querySelector('.notification-content').style.cssText = `
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    `;
+    
+    notification.querySelector('.notification-close').style.cssText = `
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: auto;
+        padding: 0.25rem;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Close button functionality
+    notification.querySelector('.notification-close').addEventListener('click', () => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => notification.remove(), 300);
+    });
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+}
+
+// Enhanced service cards animations
+document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach((card, index) => {
+        // Stagger initial animation
+        card.style.animationDelay = `${index * 0.2}s`;
+        
+        // Enhanced hover effects
+        card.addEventListener('mouseenter', () => {
+            // Add ripple effect
+            createRippleEffect(card);
+            
+            // Animate icon
+            const icon = card.querySelector('.service-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+                icon.style.background = 'linear-gradient(135deg, var(--primary-yellow), var(--primary-red))';
+            }
+            
+            // Animate features list
+            const features = card.querySelectorAll('.service-features li');
+            features.forEach((feature, i) => {
+                setTimeout(() => {
+                    feature.style.transform = 'translateX(10px)';
+                    feature.style.color = 'var(--primary-green)';
+                }, i * 50);
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            const icon = card.querySelector('.service-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+                icon.style.background = 'linear-gradient(135deg, var(--primary-green), var(--dark-green))';
+            }
+            
+            const features = card.querySelectorAll('.service-features li');
+            features.forEach(feature => {
+                feature.style.transform = 'translateX(0)';
+                feature.style.color = 'var(--text-light)';
+            });
+        });
+    });
+});
+
+// Ripple effect function
+function createRippleEffect(element) {
+    const ripple = document.createElement('span');
+    const rect = element.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = rect.width / 2;
+    const y = rect.height / 2;
+    
+    ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(0, 166, 81, 0.3);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        left: ${x - size / 2}px;
+        top: ${y - size / 2}px;
+        width: ${size}px;
+        height: ${size}px;
+        pointer-events: none;
+    `;
+    
+    element.style.position = 'relative';
+    element.appendChild(ripple);
+    
+    // Add ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    setTimeout(() => {
+        ripple.remove();
+        if (element.querySelectorAll('span').length === 0) {
+            style.remove();
+        }
+    }, 600);
+}
+
+// Feature items stagger animation
+document.addEventListener('DOMContentLoaded', () => {
+    const featureItems = document.querySelectorAll('.feature-item');
+    
+    const featureObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('fade-in-up');
+                }, index * 100);
+            }
+        });
+    }, observerOptions);
+    
+    featureItems.forEach(item => {
+        featureObserver.observe(item);
+    });
+});
+
+// Parallax effect for hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (hero && scrolled < hero.offsetHeight) {
+        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+});
+
+// Enhanced loading animations
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+    
+    // Create loading overlay
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease;
+    `;
+    
+    const loader = document.createElement('div');
+    loader.innerHTML = `
+        <div style="
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        "></div>
+        <p style="
+            color: white;
+            margin-top: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        ">Chargement...</p>
+    `;
+    
+    loadingOverlay.appendChild(loader);
+    document.body.appendChild(loadingOverlay);
+    
+    // Add spin animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Remove loading overlay after animation
+    setTimeout(() => {
+        loadingOverlay.style.opacity = '0';
+        setTimeout(() => {
+            loadingOverlay.remove();
+            style.remove();
+        }, 500);
+    }, 1500);
+    
+    // Animate hero elements with stagger
+    const heroText = document.querySelector('.hero-text');
+    const heroVisual = document.querySelector('.hero-visual');
+    const navbar = document.querySelector('.navbar');
+    
+    if (heroText && heroVisual && navbar) {
+        // Initial states
+        navbar.style.opacity = '0';
+        navbar.style.transform = 'translateY(-100px)';
+        heroText.style.opacity = '0';
+        heroText.style.transform = 'translateX(-100px)';
+        heroVisual.style.opacity = '0';
+        heroVisual.style.transform = 'translateX(100px)';
+        
+        // Animate in sequence
+        setTimeout(() => {
+            navbar.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            navbar.style.opacity = '1';
+            navbar.style.transform = 'translateY(0)';
+        }, 1800);
+        
+        setTimeout(() => {
+            heroText.style.transition = 'all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            heroText.style.opacity = '1';
+            heroText.style.transform = 'translateX(0)';
+        }, 2000);
+        
+        setTimeout(() => {
+            heroVisual.style.transition = 'all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            heroVisual.style.opacity = '1';
+            heroVisual.style.transform = 'translateX(0)';
+        }, 2200);
+        
+        // Animate hero text elements individually
+        setTimeout(() => {
+            const heroElements = heroText.querySelectorAll('h1, p, .location, .cta-button');
+            heroElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }, 2400);
+    }
+    
+    // Add floating particles effect
+    createFloatingParticles();
+});
+
+// Floating particles effect
+function createFloatingParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    `;
+    
+    document.body.appendChild(particlesContainer);
+    
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        const size = Math.random() * 4 + 2;
+        const left = Math.random() * 100;
+        const animationDuration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        
+        particle.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(0, 166, 81, 0.1);
+            border-radius: 50%;
+            left: ${left}%;
+            top: 100%;
+            animation: floatUp ${animationDuration}s linear infinite;
+            animation-delay: ${delay}s;
+        `;
+        
+        particlesContainer.appendChild(particle);
+    }
+    
+    // Add float up animation
+    const particleStyle = document.createElement('style');
+    particleStyle.textContent = `
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(particleStyle);
+}
+
+// Add dynamic year to footer
+document.addEventListener('DOMContentLoaded', () => {
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.querySelector('.footer-bottom p');
+    if (yearElement) {
+        yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
+    }
+});
+
+// Keyboard navigation support
+document.addEventListener('keydown', (e) => {
+    // Close mobile menu with Escape key
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
+
+// Add focus styles for accessibility
+document.addEventListener('DOMContentLoaded', () => {
+    const focusableElements = document.querySelectorAll(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    );
+    
+    focusableElements.forEach(element => {
+        element.addEventListener('focus', () => {
+            element.style.outline = '2px solid #00A651';
+            element.style.outlineOffset = '2px';
+        });
+        
+        element.addEventListener('blur', () => {
+            element.style.outline = 'none';
+        });
+    });
+});
+
+// Performance optimization: Throttle scroll events
+function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply throttling to scroll events
+const throttledScrollHandler = throttle(() => {
+    // Navbar scroll effect
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    }
+    
+    // Parallax effect
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (hero && heroContent && scrolled < hero.offsetHeight) {
+        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+}, 16);
+
+window.addEventListener('scroll', throttledScrollHandler);
+
+console.log('fixAfrique website loaded successfully! 🚀');
+    
+    </script>
+    
+</body>
+</html>
